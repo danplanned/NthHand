@@ -6,14 +6,21 @@
 }
 
 body {
-    background: #7b8a82;
+    background: linear-gradient(to right, #7b8a82, #5d6b64);
     color: #2f2c24;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
 .logo img {
@@ -22,41 +29,110 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #fff;
-    margin-bottom: 20px;
+    animation: bounceIn 1.5s ease-in-out;
 }
 
-.question {
-    margin-bottom: 20px;
+.login-box {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    backdrop-filter: blur(10px);
+    width: 300px;
+    animation: slideUp 1.5s ease-in-out;
 }
 
-.buttons-select {
-    display: flex;
+h2 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.input-group {
+    margin: 10px 0;
+}
+
+.input-group input {
     width: 100%;
-    justify-content: center;
-}
-
-.vendor-button, .customer-button {
-    flex-grow: 1;
-    width: 50vw; 
-    height: 60px;
+    padding: 10px;
     border: none;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
     text-align: center;
     transition: 0.3s;
 }
 
-.vendor-button {
-    background-color: #4CAF50;
-    color: white;
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-.customer-button {
-    background-color: #008CBA;
-    color: white;
+.login-btn, .signup-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
 }
 
-.vendor-button:hover, .customer-button:hover {
-    opacity: 0.8;
+.login-btn {
+    background: #2f2c24;
+    color: #fff;
+    border: none;
+}
+
+.login-btn:hover {
+    background: #514b3a;
+}
+
+.signup-text {
+    color: #fff;
+    margin-top: 10px;
+}
+
+.signup-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.signup-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
 }
